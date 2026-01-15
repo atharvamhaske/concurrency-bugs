@@ -18,7 +18,7 @@ func main() {
 	case result := <-ch:
 		fmt.Println("main:got results:", result)
 
-	case <-time.After(2 * time.Second):
+	case <-time.After(2 * time.Second): //this case will get executed as ch is unbuff with size = 0
 		fmt.Println("main:timeout, returning")
 	}
 }
@@ -44,12 +44,12 @@ func main() {
 	go func() {
 		res := doWork()
 		fmt.Println("Trying to send work details on channels")
-		ch <- res                                //this blocks
-		fmt.Println("Details sent successfully") //will never reach this
+		ch <- res                                //this doesn't blocks
+		fmt.Println("Details sent successfully") //will reach this
 	}()
 	select {
 	case result := <-ch:
-		fmt.Println("main:got results:", result)
+		fmt.Println("main:got results:", result) //this case will get executed from select and will not print returning and all
 
 	case <-time.After(2 * time.Second):
 		fmt.Println("main:timeout, returning")
