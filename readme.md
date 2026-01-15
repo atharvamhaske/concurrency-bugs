@@ -1,4 +1,4 @@
-# My implemetation notes of **"Understanding Real-World Concurrency Bugs in Go"**
+# Notes on  **"Understanding Real-World Concurrency Bugs in Go"**
 
 This repository contains my hands-on learnings, notes, and runnable code while studying and implementing concepts from the research paper **"Understanding Real-World Concurrency Bugs in Go"**. The goal of this repo is not theory repetition, but practical exploration: reproducing real concurrency bugs described in the paper, understanding why they happen, and verifying correct fixes by running the code.
 
